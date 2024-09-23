@@ -1,29 +1,41 @@
-0x7f 0x45 0x4c 0x46     // ELF magic number
-0x02 0x01 0x01 0x00     // version, ABI and endianess stuff
-00 00 00 00 00 00 00 00 // padding
-02 00                   // File type
-3e 00                   // Instruction set
-01 00 00 00             // ELF version
-78 10 40 00 00 00 00 00 // Entry point
-40 00 00 00 00 00 00 00 // ?
-00 00 00 00 
-40 00                   // ELF header size
-38 00                   // program header entry size
-01 00                   // program header entry count
-00 00 00 00 00 00       // unused section stuff
-01 00 00 00             // Entry type (LOAD)
-05 00 00 00             // section permissions RWX
-00 00 00 00 00 00 00 00 // offset (no offset)
-00 10 40 00 00 00 00 00 // virtual memory address
-00 00 40 00 00 00 00 00 // physical memory address (where needed)
-ac 00 00 00 00 00 00 00 // size in file
-ac 00 00 00 00 00 00 00 // size in memory
-00 10 00 00 00 00 00 00 // Alignment
-b8 01 00 00 00          // sys_write
-bf 01 00 00 00          // stdout
-48 be                   // mov rsi
-9f 10 40 00 00 00 00 00 // virtual memory address of string
-ba                      // mov edx
-0d 00 00 00             // string length
-0f 05                   // call syscall
-// TODO: add exit syscall
+/* ELF Header */
+0x7f 0x45 0x4c 0x46        // ELF magic number
+0x02 0x01 0x01 0x03        // version, ABI and endianess stuff
+00 00 00 00 00 00 00 00    // padding
+02 00                      // File type
+0x3e 00                    // Instruction set
+01 00 00 00                // ELF version
+78 10 40 00 00 00 00 00    // Entry point
+40 00 00 00 00 00 00 00    // ?
+00 00 00 00 00 00 00 00    // 
+00 00 00 00                //
+40 00                      // ELF header size
+38 00                      // program header entry size
+01 00                      // program header entry count
+00 00 00 00 00 00          // unused section stuff
+
+/* Program header */
+01 00 00 00                // Entry type (LOAD)
+05 00 00 00                // section permissions RWX
+00 00 00 00 00 00 00 00    // offset (no offset)
+00 10 40 00 00 00 00 00    // virtual memory address
+00 00 40 00 00 00 00 00    // physical memory address (where needed)
+ac 00 00 00 00 00 00 00    // size in file
+ac 00 00 00 00 00 00 00    // size in memory
+00 10 00 00 00 00 00 00    // Alignment
+
+/* Program */
+b8 01 00 00 00             // sys_write
+bf 01 00 00 00             // stdout
+48 0xbe                    // mov rsi
+0x9f 10 40 00 00 00 00 00  // virtual memory address of string
+ba                         // mov edx
+0x0d 00 00 00              // string length
+0x0f 05                    // call syscall
+b8 0x3c 00 00 00           // sys_exit
+0xbf 00 00 00 00           // stdout
+0x0f 05                    // call syscall
+
+/* data */
+68 65 0x6c 0x6c 0x6f 20    // "hello "
+77 0x6f 72 0x6c 64 21 0x0a // "world!\n"
