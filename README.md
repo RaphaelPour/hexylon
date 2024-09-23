@@ -1,6 +1,6 @@
 # hexylon
 
-Craft human readable and documented binary data. Cat them together with hexylon.
+Write human readable and documented binary data. Cat them together with hexylon.
 
 ## Getting started
 
