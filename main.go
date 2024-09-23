@@ -41,6 +41,7 @@ func main() {
 		s.Filename = inputFile
 
 		for token := s.Scan(); token != scanner.EOF; token = s.Scan() {
+			// fmt.Printf("%s: %s\n", s.Pos(), s.TokenText())
 			if s.ErrorCount > 0 {
 				return
 			}
