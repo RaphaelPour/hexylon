@@ -1,4 +1,29 @@
-0x7f 0x45 0x4c 0x46 // ELF magic number
-0x02 0x01 0x01 0x00 // version and ABI stuff
-00 00 00 00         // some zeros
-00 00 00 00         // more zeros
+0x7f 0x45 0x4c 0x46     // ELF magic number
+0x02 0x01 0x01 0x00     // version, ABI and endianess stuff
+00 00 00 00 00 00 00 00 // padding
+02 00                   // File type
+3e 00                   // Instruction set
+01 00 00 00             // ELF version
+78 10 40 00 00 00 00 00 // Entry point
+40 00 00 00 00 00 00 00 // ?
+00 00 00 00 
+40 00                   // ELF header size
+38 00                   // program header entry size
+01 00                   // program header entry count
+00 00 00 00 00 00       // unused section stuff
+01 00 00 00             // Entry type (LOAD)
+05 00 00 00             // section permissions RWX
+00 00 00 00 00 00 00 00 // offset (no offset)
+00 10 40 00 00 00 00 00 // virtual memory address
+00 00 40 00 00 00 00 00 // physical memory address (where needed)
+ac 00 00 00 00 00 00 00 // size in file
+ac 00 00 00 00 00 00 00 // size in memory
+00 10 00 00 00 00 00 00 // Alignment
+b8 01 00 00 00          // sys_write
+bf 01 00 00 00          // stdout
+48 be                   // mov rsi
+9f 10 40 00 00 00 00 00 // virtual memory address of string
+ba                      // mov edx
+0d 00 00 00             // string length
+0f 05                   // call syscall
+// TODO: add exit syscall
