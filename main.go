@@ -9,7 +9,7 @@ import (
 
 func main() {
 	if len(os.Args) < 3 {
-		fmt.Println("usage: hexylon <hexy file> [hexy file...] <out file|->")
+		fmt.Println("usage: hexylon <0x file> [0x file...] <out file|->")
 		return
 	}
 
