@@ -1,6 +1,6 @@
 # hexylon
 
-Hexylon `[hˈɛksɪlən]` is [the geek god](https://en.wikipedia.org/wiki/Null_pointer) of human-friendly binary data. Write human readable and documented binary data. Cat them together with hexylon.
+Hexylon `[hˈɛksɪlən]` is [the geek goddess](https://en.wikipedia.org/wiki/Null_pointer) of human-friendly binary data. Write human readable and documented binary data. Cat them together with hexylon.
 
 ## Getting started
 
